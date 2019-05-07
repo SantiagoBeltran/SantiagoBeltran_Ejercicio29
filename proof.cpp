@@ -11,7 +11,7 @@ const float c= 1;
 const float pi=4*atan(1);
 
 int main(){
-  ecOnda(101, 101, "intento.dat");
+  ecOnda(101, 301, "intento.dat");
   return 0;
 }
 
@@ -23,12 +23,9 @@ void ecOnda(int nmax, int nt,string filename){
     float ratio;
     ofstream outfile;
     outfile.open(filename);
-    //for (int i=0; i<nmax;i++){
-      //  T[0][i]=0;
-        //T[nmax-1][i]=0;
-        //}
+    
     for (int i=0; i<nmax;i++){
-        T[i][0]=0.001*sin(2*pi*i/100);
+        T[i][0]=sin(pi*i/100);
         T[i][2]=T[i][0];
         }
     ratio=(c*c)/(c1*c1);
@@ -49,7 +46,7 @@ void ecOnda(int nmax, int nt,string filename){
         }    
     
     float error=100.0;
-    for(int k=3; k<nmax;k++){
+    for(int k=3; k<nt;k++){
         for(int i=0;i<nmax;i++){
             T[i][0]=T[i][1];
             T[i][1]=T[i][2];
