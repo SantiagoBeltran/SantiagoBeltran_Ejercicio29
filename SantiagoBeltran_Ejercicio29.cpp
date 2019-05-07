@@ -5,21 +5,19 @@
 using namespace std;
 
 void ecOnda(int nmax, int nt,string filename);
-const float T=40;
-const float rho=0.01;
-const float c= 1;
+const float c= 1.0/2.0;
 const float pi=4*atan(1);
 
 int main(){
-  ecOnda(101, 301, "intento.dat");
+  ecOnda(101, 601, "intento.dat");
   return 0;
 }
 
 void ecOnda(int nmax, int nt,string filename){
     float T[nmax][3]={0};
-    const float dx=1/100;
-    const float dt=1/100;
-    const float c1=1;
+    const float dx=0.01;
+    const float dt=0.01;
+    const float c1=dx/dt;
     float ratio;
     ofstream outfile;
     outfile.open(filename);
@@ -45,7 +43,6 @@ void ecOnda(int nmax, int nt,string filename){
             if(j==nmax-1){outfile<<endl;}
         }    
     
-    float error=100.0;
     for(int k=3; k<nt;k++){
         for(int i=0;i<nmax;i++){
             T[i][0]=T[i][1];

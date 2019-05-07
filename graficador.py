@@ -11,9 +11,9 @@ ax = fig.add_subplot(1, 2, 1, projection='3d')
 
 data= np.loadtxt("intento.dat")
 x=np.arange(0,101,1)
-y=np.arange(0,301,1)
+y=np.arange(0,601,1)
 x1=np.arange(0,101,1)/100
-y1=np.arange(0,301,1)*6/300
+y1=np.arange(0,601,1)*6/600
 
 def f(x,y):
     return data[x,y]
@@ -26,9 +26,7 @@ surf = ax.plot_surface(Y1, X1, f(Y,X), cmap=cm.coolwarm,
                        linewidth=0, antialiased=True)
 
 # Customize the z axis.
-#ax.set_zlim(-1.01, 1.01)
-#ax.zaxis.set_major_locator(LinearLocator(10))
-#ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+
 ax.set_xlabel("Tiempo [segundos]")
 ax.set_ylabel("Posicion [metros]")
 
